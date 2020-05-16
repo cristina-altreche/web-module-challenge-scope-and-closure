@@ -2,64 +2,63 @@
 
 /**
  * ### Challenge `processFirstItem`
- * 
+ *
  * @instructions
  * Implement a higher-order function called `processFirstItem`.
  * It takes two arguments:
  * @param stringList an array of strings.
  * @param callback function that takes a string as its argument.
  * @returns the result of invoking `callback` with the FIRST element in `stringList`.
- * 
+ *
  * Example of usage of this higher-order function:
  * Invoking `processFirstItem` passing `['foo', 'bar']` and `(str) => str + str`,
  * should return 'foofoo'.
-*/
+ */
 function processFirstItem(stringList, callback) {
-  return callback(stringList[0])
+  return callback(stringList[0]);
 }
 
 // ⭐️ Example Challenge END ⭐️
-
 
 ///// M V P ///////
 
 /* Task 1: `counterMaker`
  * Study the code for counter1 and counter2. Answer the questions below.
- * 
- * 1. What is the difference between counter1 and counter2?
- * 
- * 2. Which of the two uses a closure? How can you tell?
- * 
- * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
  *
-*/
+ * 1. What is the difference between counter1 and counter2?
+ * Counter1 has the counter declared inside the outer function and Counter2 has the counter declared globally.
+ * 2. Which of the two uses a closure? How can you tell?
+ * They both are using closures. Counter1's inner function is using the count variable outside of it's scope. Counter2 is also using the count variable outside of its scope.
+ * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better?
+ * Counter 1 would be preferrable since you can now create multiple instances of the counter. For Counter2 you are limited to just the counter2(). Counter2 would be better if
+ * you want the variable count to be referenced elsewhere.
+ */
 
 // counter1 code
 function counterMaker() {
   let count = 0;
   return function counter() {
-   return count++;
-  }
+    return count++;
+  };
 }
 
 const counter1 = counterMaker();
 
 // counter2 code
-let count = 0;
+let count = 10;
 
 function counter2() {
   return count++;
 }
 
+console.log(counter2());
 
 /* Task 2: inning() 
 
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
-
-    /*Code Here*/
-
+function inning(/*Code Here*/) {
+  /*Code Here*/
 }
 
 /* Task 3: finalScore()
@@ -74,12 +73,10 @@ finalScore(inning, 9) might return:
   "Away": 5,
 }
 
-*/ 
+*/
 
-function finalScore(/*code Here*/){
-
+function finalScore(/*code Here*/) {
   /*Code Here*/
-
 }
 
 /* Task 4: 
@@ -106,5 +103,3 @@ Final Score: 6 - 10 */
 function scoreboard(/* CODE HERE */) {
   /* CODE HERE */
 }
-
-
