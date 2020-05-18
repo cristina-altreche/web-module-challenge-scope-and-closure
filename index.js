@@ -81,12 +81,14 @@ function finalScore(num, callback) {
   let awayTotal = 0;
   let results = {};
 
-  for (let i = 0; i < 9; i++) {
+  for (let i = 0; i < num; i++) {
     let obj = { Home: callback(), Away: callback() };
     arr.push(obj);
 
     homeTotal = homeTotal + arr[i].Home;
+    // console.log(homeTotal);
     awayTotal = awayTotal + arr[i].Away;
+    // console.log(awayTotal);
   }
 
   results = {
@@ -96,7 +98,7 @@ function finalScore(num, callback) {
   return results;
 }
 
-console.log(finalScore(9, inning));
+// console.log(finalScore(9, inning));
 
 /* Task 4: 
 
@@ -120,5 +122,22 @@ and returns the score at each pont in the game, like so:
 Final Score: 6 - 10 */
 
 function scoreboard(num, callback) {
-  /* CODE HERE */
+  let home = 0;
+  let away = 0;
+  let totalHome = 0;
+  let totalAway = 0;
+  for (let i = 0; i < num; i++) {
+    home = callback();
+    away = callback();
+
+    totalHome = totalHome + home;
+    totalAway = totalAway + away;
+
+    if (i + 1 === 1) console.log(`${i + 1}st inning: ${home} - ${away}`);
+    else if (i + 1 === 2) console.log(`${i + 1}nd inning: ${home} - ${away}`);
+    else if (i + 1 === 3) console.log(`${i + 1}rd inning: ${home} - ${away}`);
+    else console.log(`${i + 1}th inning: ${home} - ${away}`);
+  }
+  return console.log(`Final Score: ${totalHome} - ${totalAway}`);
 }
+scoreboard(9, inning);
